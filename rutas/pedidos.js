@@ -50,24 +50,14 @@ router.get('/', verificaJWT, async function (req, res) {
 
 // Get de los pedidos propios de un usuario logeado// REVISAR***
 
-router.get('/', (req, res) => {
-    Order.findAll({
-        where:{
-            id_usuario: user.id
-        }
-    })
-    res.json(miPedido)
-});
+router.get('/:user.id', verificaJWT, (req, res) => {
 
-//o 
-
-router.get('/', verificaJWT, (req, res) => {
-    const pedidosTodos = Order.findAll(
+    const pedidosUser = Order.findOne(
         {
             where:
-                { id_usuario: "0" }
+                {id: user.id }
         })
-    res.json(pedidosTodos)
+    res.json(pedidosUser)
 });
 
 // Actualizar el estado del pedido, solo Admin 

@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Resto API
+  description: 'App para manejar usuarios, pedidos, productos'
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/juanmoreno13/restoAPI/1.0.0
+
+paths:
+  /api/users/:id:
+    get:
+      description: Trae el usuario por id
+      parameters: 
+        - in: query
+          name: id
+          required: true
+          description: id del usuario
+          schema:
+            type: number
+            
+      responses:
+        200:
+          description: usuario encontrado
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "username"
