@@ -15,8 +15,8 @@ OrderDetail.init({
     sequelize, // We need to pass the connection instance
     modelName: 'detallePedidos' // We need to choose the model Table name
   });
-  
 
-OrderDetail.hasOne(Food, { foreignKey: 'id', as:'producto' });
 
-module.exports = OrderDetail
+OrderDetail.hasOne(Food, { foreignKey: 'id', sourceKey:'id_producto', as: 'producto' });
+
+module.exports = OrderDetail;

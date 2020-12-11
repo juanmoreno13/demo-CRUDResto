@@ -34,14 +34,19 @@ router.post('/', async (req, res) => {
 // Get de todos los pedidos solo el Admin
 
 router.get('/', verificaJWT, async function (req, res) {
+    let where_clause = null;
+    if (req.user.nombre_rol !== 'ADMIN') {
+        where_clause = { id_usuario: req.user.id };
+    }
     respuesta = {
         error: false,
         codigo: 200,
         mensaje: 'Esto son los Pedidos',
         pedido: await Order.findAll({
+            where: where_clause,
             include: [
-                { model: OrderDetail, include: [{ model: Food, as: 'producto', sourceKey: 'name' }] },
-                // { model: User, as: 'usuario', sourceKey: 'id_usuario'}
+                { model: User, as: 'usuario', attributes: ['id', 'nombrecompleto', 'direccion', 'correo', 'telefono'] },
+                { model: OrderDetail, attributes: ['id', 'cantidad', 'precio_unitario', 'precio_total'], include: [{ model: Food, as: 'producto', attributes: ['id', 'nombre'] }] },
             ],
         }),
     };
@@ -55,7 +60,7 @@ router.get('/:user.id', verificaJWT, (req, res) => {
     const pedidosUser = Order.findOne(
         {
             where:
-                {id: user.id }
+                { id: user.id }
         })
     res.json(pedidosUser)
 });

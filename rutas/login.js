@@ -7,7 +7,7 @@ require('dotenv').config();
 
 //Login
 
-router.post('/login', async (req, res,) => {
+router.post('/', async (req, res,) => {
 
     let correo = req.body.correo;
     let clave = req.body.clave;

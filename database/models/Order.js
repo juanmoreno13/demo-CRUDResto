@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../db');
 const OrderDetail = require('./OrderDetail');
-// const User = require('./User');
+const User = require('./User');
 
 class Order extends Model { }
 Order.init({
@@ -18,11 +18,6 @@ Order.init({
 
 
 Order.hasMany(OrderDetail, { foreignKey: 'id_pedido' });
-
-// Order.associate = (models) => {
-//   Order.hasOne(models.User, {foreignKey: 'id', as: 'usuario'});
-// };
-
-// OrderDetail.hasOne(User, { foreignKey: 'id', as:'usuario' });
+Order.hasOne(User, { foreignKey: 'id', sourceKey:'id_usuario', as: 'usuario' });
 
 module.exports = Order;

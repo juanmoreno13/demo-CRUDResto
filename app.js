@@ -12,8 +12,6 @@ app.use(bodyParser.json());
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-// require('./database/relaciones);
-
 // llamamos a las Rutas
 app.use('/api/users', require('./rutas/users'));
 app.use('/api/productos', require('./rutas/productos'));
