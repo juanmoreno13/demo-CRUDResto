@@ -3,6 +3,7 @@ const router = express.Router();
 const Food = require('../database/models/Food'); //modelo de los Productos
 const verificaJWT = require('../middlewares');
 
+
 //Rutas Productos 
 
 // Get por producto por Id 
@@ -14,7 +15,6 @@ router.get('/:id', (req, res) => {
 });
 
 //Get de todos los productos 
-
 router.get('/', async (req, res) => {
     respuesta = {
         error: false,

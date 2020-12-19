@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
     res.json({ ...created.dataValues, items: req.body.items });
 });
 
-// Get de todos los pedidos solo el Admin
+// Get de Pedidos Admin o User
 
 router.get('/', verificaJWT, async function (req, res) {
     let where_clause = null;
@@ -41,7 +41,7 @@ router.get('/', verificaJWT, async function (req, res) {
     respuesta = {
         error: false,
         codigo: 200,
-        mensaje: 'Esto son los Pedidos',
+        mensaje: 'Esto son todos tus Pedidos',
         pedido: await Order.findAll({
             where: where_clause,
             include: [
@@ -53,20 +53,7 @@ router.get('/', verificaJWT, async function (req, res) {
     res.send(respuesta);
 });
 
-// Get de los pedidos propios de un usuario logeado// REVISAR***
-
-router.get('/:user.id', verificaJWT, (req, res) => {
-
-    const pedidosUser = Order.findOne(
-        {
-            where:
-                { id: user.id }
-        })
-    res.json(pedidosUser)
-});
-
 // Actualizar el estado del pedido, solo Admin 
-
 router.put('/:id', verificaJWT, (req, res) => {
     if (req.user.nombre_rol !== 'ADMIN') {
         return res.sendStatus(401);
