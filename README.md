@@ -50,7 +50,7 @@ y la password esta en el archivo db.js
 
 ## Datos de pruebas
 
-El proyecto se encuantra listo para realizar pruebas ya que se encuentra enlazado a un servicio en la nube de base de datos.
+El proyecto se encuentra listo para realizar pruebas ya que se encuentra enlazado a un servicio en la nube de base de datos.
 
 Los usuarios de prueba para acceder al proyecto los siguientes:
 - Usuario administrador: 
