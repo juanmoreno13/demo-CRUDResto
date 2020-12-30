@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "162f8e4a-af86-40a7-b361-0ec6042807c2",
+		"name": "Deliah Resto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear pedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_usuario\": 2,\n    \"forma_de_pago\": \"efectivo\",\n    \"items\": [\n        {\n        \"id_producto\": 1,\n        \"cantidad\": 1,\n        \"precio\": 200\n        },\n        {\n        \"id_producto\": 2,\n        \"cantidad\": 1,\n        \"precio\": 300\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3003/api/pedidos",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3003/api/pedidos",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "correo",
+							"value": "juan@hola.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3003/api/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombrecompleto",
+							"value": "Jose",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "jose@hola.com",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "1233456",
+							"type": "text"
+						},
+						{
+							"key": "direccion",
+							"value": "Quito",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3003/api/users",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Productos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNwb25zZSI6eyJpZCI6MSwiY29ycmVvIjoianVhbkBqdWFuLmNvbSIsImlkX3JvbCI6MSwibm9tYnJlX3JvbCI6IkFETUlOIn0sImlhdCI6MTYwNzY1MTU3OH0.pVzv8r9Mj5zjBzemvMjcYAt3kc78uDibBxXLeEa2NKk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Camarones al Ajillo Nuevo",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "300",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"value": "imagen1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3003/api/productos",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Nuevo Plato",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNwb25zZSI6eyJpZCI6MSwiY29ycmVvIjoiSlVBTkBIT0xBLkNPTSIsImlkX3JvbCI6MSwibm9tYnJlX3JvbCI6IkFETUlOIn0sImlhdCI6MTYwOTI5ODIzOX0.xc-pH0B_hQrJ3YRjKp8BxK5AZuPk6w3_jcZp7UN52qc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Sanduche de Pavo",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"value": "www.imagen.com/pavo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3003/api/productos",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Plato",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNwb25zZSI6eyJpZCI6MSwiY29ycmVvIjoiSlVBTkBIT0xBLkNPTSIsImlkX3JvbCI6MSwibm9tYnJlX3JvbCI6IkFETUlOIn0sImlhdCI6MTYwOTI5ODIzOX0.xc-pH0B_hQrJ3YRjKp8BxK5AZuPk6w3_jcZp7UN52qc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Sanduche de Pavo Light",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "500",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"value": "www.imagen.com/pavo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3003/api/productos/4",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"productos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Estado Pedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNwb25zZSI6eyJpZCI6MSwiY29ycmVvIjoiSlVBTkBIT0xBLkNPTSIsImlkX3JvbCI6MSwibm9tYnJlX3JvbCI6IkFETUlOIn0sImlhdCI6MTYwOTI5ODIzOX0.xc-pH0B_hQrJ3YRjKp8BxK5AZuPk6w3_jcZp7UN52qc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "estado",
+							"value": "nuevo",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3003/api/pedidos/3",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"pedidos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

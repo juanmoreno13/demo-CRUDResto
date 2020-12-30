@@ -3,7 +3,7 @@
 
 ###
 
-En el archivo App.js se crea la aplicación con express en el servidor y se inicializa en el puerto local. Para llamar a la base de datos utilizamos sequelize y se conecta con los parametros del archivo db.js
+En el archivo App.js se crea la aplicación con express en el servidor y se inicializa en el puerto local. Para crear la base de datos utilizamos sequelize y se conecta con los parametros del archivo db.js
 
 Se instalan las siguientes dependencias via npm:
 
@@ -38,3 +38,27 @@ Rutas
 Se utiliza Middlewares para Autenticación de Usuarios para solo permitir ciertas rutas a los usuarios y otras solo al Admin.
 
 Documentacion localhost:3003/api-docs
+
+### Inicializacion de base de datos:
+Actualmente el proyecto se encuentra configurado para trabajar con una base de datos en la nube pero en caso de que se requiera hacer pruebas con otra base de datos se debe ejecutar el archivo **bootstrap.sql** localizado en la raiz del proyecto.
+
+La configuración para acceder al remotemysql.com es: 
+
+username: 'VvVXuJ5tEr'
+y la password esta en el archivo db.js
+
+
+## Datos de pruebas
+
+El proyecto se encuantra listo para realizar pruebas ya que se encuentra enlazado a un servicio en la nube de base de datos.
+
+Los usuarios de prueba para acceder al proyecto los siguientes:
+- Usuario administrador: 
+    - username: JUAN@HOLA.COM
+    - password: 1234
+- Usuario normal:
+    - username: PEDRO@HOLA.COM
+    - password: 1234
+
+## Postman
+Se adjunto archivo Postman Deliah Resto JSON para importar y realizar las pruebas.  

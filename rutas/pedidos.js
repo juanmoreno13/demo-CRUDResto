@@ -10,7 +10,7 @@ const verificaJWT = require('../middlewares');
 
 // creacion de un pedido
 
-router.post('/', async (req, res) => {
+router.post('/', verificaJWT, async (req, res) => {
     const total = req.body.items.reduce((prev, item) => prev + (item.precio * item.cantidad), 0);
     const created = await Order.create({
         id_usuario: req.body.id_usuario,
@@ -69,5 +69,19 @@ router.put('/:id', verificaJWT, (req, res) => {
     });
 });
 
+//Borrar un pedido, solo Admin 
+
+router.delete('/:id', verificaJWT, (req, res) => {
+    if (req.user.nombre_rol !=='ADMIN'){
+        return res.sendStatus(401);
+    }
+    Order.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(result => {
+        res.json(result);
+    })
+});
 
 module.exports = router
