@@ -9,9 +9,9 @@ const { Sequelize } = require('sequelize');
 // });
 
 const sequelize = new Sequelize( {
-username: 'VvVXuJ5tEr',
-password: '1cLWdc3E1n',
-database: 'VvVXuJ5tEr',
+username: 'nke22KUC6U',
+password: 'EHdNMzfjWO',
+database: 'nke22KUC6U',
 host: 'remotemysql.com',
 dialect: 'mysql',
 port:'3306'

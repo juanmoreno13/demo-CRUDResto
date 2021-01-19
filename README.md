@@ -1,11 +1,20 @@
 # Proyecto Deliah Resto
-## Documentacion para iniciar el proyecto
 
-###
 
-En el archivo App.js se crea la aplicación con express en el servidor y se inicializa en el puerto local. Para crear la base de datos utilizamos sequelize y se conecta con los parametros del archivo db.js
+## Instalaci&oacute;n del proyecto:
 
-Se instalan las siguientes dependencias via npm:
+- Dependencias:
+    - Node
+    - Servidor MariaDB
+    
+
+Instalacion de depencias del proyecto:
+
+```
+npm install
+```
+
+Una vez ejecutado el comando, se instalan las siguientes dependencias:
 
 BD
 - express
@@ -19,13 +28,50 @@ Autenticación
 - jsonwebtoken
 - dotenv
 
+## Puesta en marcha del proyecto:
+
+```
+npm start
+```
+
+
+## Inicializacion de base de datos:
+Actualmente el proyecto se encuentra configurado para trabajar con una base de datos en la nube; pero en caso de que se requiera hacer pruebas con otra base de datos se debe ejecutar el archivo **bootstrap.sql** localizado en la raiz del proyecto.
+
+Para crear un base de datos se va a remotemysql.com, se crea un  usuario, y se genera un base de datos. Una vez generado 
+la base de datos en SQL se pega el script del archivo **bootstrap.sql** y se generan las tablas y se agregan datos 
+iniciales para las pruebas. 
+
+Existe una base de datos credenciales :
+
+username: 'nke22KUC6U',
+password: 'EHdNMzfjWO',
+database: 'nke22KUC6U',
+
+
+## Datos de pruebas
+
+El proyecto se encuentra listo para realizar pruebas ya que se encuentra enlazado a un servicio en la nube de base de datos.
+
+Hay dos usuarios ADMIN Y USER de prueba:
+
+- Usuario administrador: 
+    - username: JUAN@HOLA.COM
+    - password: 1234
+    
+- Usuario normal:
+    - username: PEDRO@HOLA.COM
+    - password: 1234
+
+## Estructura del proyecto
+
 Se definen 5 modelos para las tablas de la base de datos:
 
 - Food para "Platos"
 - Order para las "Pedidos" 
 - OrderDetail para el detalle completo de los Pedidos
 - Rol para definir que tipo de usuario es
-- Usuario para almacenar los usuarios 
+- User para almacenar los usuarios 
 
 Se crean las siguientes rutas en la applicación:
 
@@ -37,28 +83,9 @@ Rutas
 
 Se utiliza Middlewares para Autenticación de Usuarios para solo permitir ciertas rutas a los usuarios y otras solo al Admin.
 
-Documentacion localhost:3003/api-docs
-
-### Inicializacion de base de datos:
-Actualmente el proyecto se encuentra configurado para trabajar con una base de datos en la nube pero en caso de que se requiera hacer pruebas con otra base de datos se debe ejecutar el archivo **bootstrap.sql** localizado en la raiz del proyecto.
-
-La configuración para acceder al remotemysql.com es: 
-
-username: 'VvVXuJ5tEr'
-y la password esta en el archivo db.js
-
-
-## Datos de pruebas
-
-El proyecto se encuentra listo para realizar pruebas ya que se encuentra enlazado a un servicio en la nube de base de datos.
-
-Los usuarios de prueba para acceder al proyecto los siguientes:
-- Usuario administrador: 
-    - username: JUAN@HOLA.COM
-    - password: 1234
-- Usuario normal:
-    - username: PEDRO@HOLA.COM
-    - password: 1234
-
 ## Postman
-Se adjunto archivo Postman Deliah Resto JSON para importar y realizar las pruebas.  
+El siguiente enlace de Postman se puede utilizar para realizar las pruebas:
+
+https://www.getpostman.com/collections/8e513c92dce579a5184f
+
+Documentación localhost:3003/api-docs

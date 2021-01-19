@@ -13,9 +13,10 @@ const verificaJWT = require('../middlewares');
 router.post('/', verificaJWT, async (req, res) => {
     const total = req.body.items.reduce((prev, item) => prev + (item.precio * item.cantidad), 0);
     const created = await Order.create({
-        id_usuario: req.body.id_usuario,
+        id_usuario: req.user.id,
         forma_de_pago: req.body.forma_de_pago,
         total: total,
+        estado: 'nuevo',
     });
 
     req.body.items.forEach(async (item) => {
